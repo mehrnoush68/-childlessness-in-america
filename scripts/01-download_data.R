@@ -1,26 +1,37 @@
 #### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Downloads the data from US General Social Survey
+# Author: Mehrnoush Mohammadi
+# Date: 2 March 2024
+# Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: Download the raw data from US General Social Survey (https://gssdataexplorer.norc.org/trends)
 
 
 #### Workspace setup ####
-library(opendatatoronto)
 library(tidyverse)
-# [...UPDATE THIS...]
 
-#### Download data ####
-# [...ADD CODE HERE TO DOWNLOAD...]
+#Note: data is behind sign-in
+# data can be accessed at https://gssdataexplorer.norc.org/trends from the US General Social Survey
 
-
-
-#### Save data ####
-# [...UPDATE THIS...]
-# change the_raw_data to whatever name you assigned when you downloaded it.
-write_csv(the_raw_data, "inputs/data/raw_data.csv") 
-
+#### Load data ####
+nochild_age_data <-
+  read_csv(
+    file = "inputs/data/nochild_age.csv",
+    show_col_types = FALSE,
+  )
+nochild_class_data <-
+  read_csv(
+    file = "inputs/data/nochild_class.csv",
+    show_col_types = FALSE,
+  )
+nochild_sex_data <-
+  read_csv(
+    file = "inputs/data/nochild_sex.csv",
+    show_col_types = FALSE,
+  )
+nochild_degree_data <-
+  read_csv(
+    file = "inputs/data/nochild_higestdegree.csv",
+    show_col_types = FALSE,
+  )
          

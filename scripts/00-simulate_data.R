@@ -1,19 +1,17 @@
 #### Preamble ####
-# Purpose: Simulates... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Simulates data for the data sets no child, age, class identification, degree, and gender
+# Author: Mehrnoush Mohammadi
+# Date: 2 March 2024
+# Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
 
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
+library(janitor)
 
 #### Simulate data ####
-# [...ADD CODE HERE...]
+set.seed(1)
 
 
 
