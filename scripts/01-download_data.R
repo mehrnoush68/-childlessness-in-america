@@ -10,8 +10,9 @@
 #### Workspace setup ####
 library(tidyverse)
 
-#Note: data is behind sign-in
+# Note: data is behind sign-in
 # data can be accessed at https://gssdataexplorer.norc.org/trends from the US General Social Survey
+# data was downloaded as .xlsx file format and saved as .csv format on the computer
 
 #### Load data ####
 nochild_age_data <-

@@ -60,6 +60,10 @@ clean_data_degree <- function(x) {
 clean_data_age <- data_cleaned_age |>
   mutate(across(-1, clean_data))
 
+# Rename the 'age' column to 'Age'
+clean_data_age <- clean_data_age |>
+  rename(Age = age)
+
 clean_data_class <- data_cleaned_class |>
   mutate(across(-1, clean_data))
 
