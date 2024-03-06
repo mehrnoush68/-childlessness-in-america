@@ -1,10 +1,10 @@
 ---
-title: "Understanding the Landscape of Childlessness in the U.S.: A Data-Driven Exploration (50-Year Trends)"
+title: "Understanding the Landscape of Childlessness in the U.S.: A Data-Driven Exploration (1972-2022)"
 author: Mehrnoush Mohammadi
 thanks: "Code and data are available at: https://github.com/mehrnoush68/childlessness-in-america.git"
 date: today
 date-format: long
-abstract: "This paper investigates trends in childlessness in the United States from 1970 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society."
+abstract: "This paper investigates trends in childlessness in the United States from 1972 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society."
 format: pdf
 number-sections: true
 toc: true
@@ -63,7 +63,7 @@ The graphs and tables in this paper were created in R Studio using R [@citeR] an
 
 
 # Data
-This paper utilizes a multifaceted approach, drawing on various datasets to illuminate the complexities of childlessness in the United States. One primary source is the General Social Survey (GSS), a long-running and highly respected survey conducted by the National Opinion Research Center (NORC) at the University of Chicago [@gss], from 1970 to 2022.
+This paper utilizes a multifaceted approach, drawing on various datasets to illuminate the complexities of childlessness in the United States. One primary source is the General Social Survey (GSS), a long-running and highly respected survey conducted by the National Opinion Research Center (NORC) at the University of Chicago [@gss], from 1972 to 2022.
 
 ## Source Data
 
@@ -207,14 +207,14 @@ While acknowledging the importance of gender disparities, the analysis presented
 
 # Result and Analysis
 
-@fig-nochild-age illustrates of @tbl-nochild-age which is a consistent rise in childlessness across all age groups in the United States from 1970 to 2022. 
+@fig-nochild-age illustrates of @tbl-nochild-age which is a consistent rise in childlessness across all age groups in the United States from 1972 to 2022. 
 
 ```{r}
 #| echo: false
 #| include: true
 #| warning: false
 #| label: fig-nochild-age
-#| fig-cap: "Percentage of Childless Adults by Age Group in the US (1970-2020)"
+#| fig-cap: "Percentage of Childless Adults by Age Group in the US (1972-2020)"
 
 nochild_age_data_long <- tidyr::pivot_longer(table_nochild_age, -Age, names_to = "year", values_to = "percentage")
 
@@ -223,16 +223,21 @@ ggplot(nochild_age_data_long, aes(x = as.integer(year), y = percentage, color = 
   geom_smooth(method = "loess", se = FALSE, linetype = "solid", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Age Group", color = "Age Group") +
   theme_minimal()
+
+# Calculation of Percentage Increase in 18-34
+initial_value <- 46.07
+final_value <- 65.76
+percentage_increase <- ((final_value - initial_value) / initial_value) * 100
+
+#percentage_increase
 ```
 
 \newpage
 
-It is important to acknowledge, however, that the data series has gaps for several years within this timeframe (1979, 1981, 1992, 1995, 1997, 1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, and 2019). These missing data points can potentially limit the generalizability of the observed trends and hinder a comprehensive understanding of the childlessness over time.
-Despite these limitations, the available data reveals a steady increase in the percentage of individuals without children across all age groups. Notably, the most significant rise is observed among younger adults (18-34 and 35-49). As an example, the percentage of childless individuals in the 18-34 age group nearly doubled from 10% in 1970 to 19% in 2020.
+It is important to acknowledge, however, that the data series has gaps for several years within this timeframe (1979, 1981, 1992, 1995, 1997, 1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, and 2019). These missing data points can potentially limit the generalization of the observed trends and hinder a comprehensive understanding of the childlessness over time.
+Despite these limitations, the available data reveals a steady increase in the percentage of individuals without children across all age groups. Notably, the most significant rise is observed among younger adults (18-34 and 35-49). As an example, the percentage of childless individuals in the 18-34 age group increased by approximately 42.70% from 1972 to 2022.
 
-@fig-nochild-class visualizes @tbl-nochild-class which depicts the gradual increase in the percentage of childless individuals across three social classes (Working Class, Middle Class, Upper Class) in the United States from 1970 to 2020. The graph reveals an upward trend in childlessness for all classes over the five decades.
-
-While all classes show an increase, the data suggests the most significant rise occurred among the Working Class, with their percentage of childless individuals nearly doubling from 20% in 1970 to 40% in 2020. The Middle Class and Upper Class also experienced steady increases, though to a lesser extent, reaching around 32% and 25% childlessness, respectively, in 2020.
+@fig-nochild-class visualizes @tbl-nochild-class which depicts the gradual increase in the percentage of childless individuals across four social classes (Lower Class, Working Class, Middle Class, Upper Class) in the United States from 1972 to 2022. The graph reveals an upward trend in childlessness for all classes over the five decades.
 
 ```{r}
 #| echo: false
@@ -256,11 +261,13 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Class Identification`))
 
 ```
 
+People and households are divided into groups based on their socioeconomic status. The lower class experiences economic hardship, while the Working Class earns limited wages and faces job insecurity. The middle class has white-collar or professional occupations and enjoys a comfortable lifestyle. The upper class has substantial wealth and enjoys a privileged lifestyle with exclusive amenities [@pewresearch2022].
 
-@fig-nochild-degree visualization of @tbl-nochild-degree, presents a comparative analysis of childlessness across individuals with different levels of educational attainment (High School Diploma, Bachelor's Degree, Master's Degree or Higher) in the United States from 1970 to 2020. The graph utilizes line trends to depict the percentage of childless individuals within each degree category over the five decades.
+While all classes show an increase in @fig-nochild-class, the data suggests the most significant rise occurred among the Lower Class, with their percentage of childless individuals nearly doubling from approximately 17.16% in 1972 to around 34.46% in 2022, marking a substantial increase of approximately 101.04% over the specified period. The Working Class also experienced a significant increase, from around 21.83% in 1972 to approximately 31.44% in 2022, indicating a rise of roughly 43.98%. Additionally, the Middle Class saw a slight increase, from approximately 28.24% in 1972 to about 30.09% in 2022, representing a rise of approximately 6.55%. Similarly, the Upper Class saw an increase, with their percentage of childless individuals climbing from approximately 20.24% in 1972 to about 27.87% in 2022, indicating an increase of roughly 37.71%.
 
-The data reveals a distinct pattern across educational groups. Individuals with a High School Diploma consistently exhibit the highest percentage of childlessness throughout the entire period, ranging from around 40% in 1970 to nearly 55% in 2020. Conversely, individuals with a Master's Degree or Higher consistently exhibit the lowest percentage of childlessness, starting at around 15% in 1970 and reaching approximately 25% in 2020. The trend for individuals with a Bachelor's Degree falls between the other two groups, displaying a rise from 25% in 1970 to around 35% in 2020.
+@fig-nochild-degree visualization of @tbl-nochild-degree, presents a comparative analysis of childlessness across individuals with different levels of educational attainment (Less than High School, High School and College's Degree or Higher) in the United States from 1972 to 2022. The graph utilizes line trends to depict the percentage of childless individuals within each degree category over the five decades.
 
+The data reveals a distinct pattern across educational groups. Individuals with a high school diploma consistently exhibit the highest percentage of childlessness throughout the entire period, ranging from around 28.15% in 1972 to 34.56% in 2022. Conversely, The percentage of childless individuals with a College and higher degree has decreased from 32.85% in 1972 to 29.84% in 2022. The trend for individuals with a with less than a high school education increased from 16.97% in 1972 to 22.90% in 2022.
 ```{r}
 #| echo: false
 #| include: true
@@ -284,9 +291,11 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Degree`)) +
 
 ```
 
-@fig-nochild-gender illustrates of @tbl-nochild-sex, explores gender differences in childlessness within the United States over a 50-year period (1970-2020). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
+\newpage
 
-The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 10 percentage points in 2020 (approximately 35% for females and 45% for males).
+@fig-nochild-gender illustrates of @tbl-nochild-sex, explores gender differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
+
+The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
 
 ```{r}
 #| echo: false
@@ -310,8 +319,7 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Gender`)) +
 
 ```
 
-The figures presented in this paper were generated using data from the [@gss]. These figures visually represent the key findings related to the trends and patterns in childlessness across different age, social classes, educational attainment levels, and genders in the United States over the past five decades (1970-2020). It is important to remember that these figures solely present descriptive data and do not establish causal relationships. The Discussion section will delve deeper into potential explanations for the observed trends and explore the broader implications of these findings.
-
+The figures presented in this paper were generated using data from the [@gss]. These figures visually represent the key findings related to the trends and patterns in childlessness across different age, social classes, educational attainment levels, and genders in the United States over the past five decades (1972-2022). It is important to remember that these figures solely present descriptive data and do not establish causal relationships. The Discussion section will delve deeper into potential explanations for the observed trends and explore the broader implications of these findings.
 
 # Discussion
 
