@@ -386,6 +386,18 @@ The survey questions are available here under each trend: https://gssdataexplore
 - Female
 - Male
 
+(@) Are you currently:
+- Married
+- Widowed
+- Divorced
+- Separated
+- Never been married
+
+(@) Would you say your own health, in general:
+- Excellent
+- Good
+- Fair
+- Poor
 
 # References
 
