@@ -9,6 +9,7 @@
 
 #### Workspace setup ####
 library(tidyverse)
+library(readr)
 
 # Note: data is behind sign-in
 # data can be accessed at https://gssdataexplorer.norc.org/trends from the US General Social Survey
@@ -35,4 +36,13 @@ nochild_degree_data <-
     file = "inputs/data/nochild_higestdegree.csv",
     show_col_types = FALSE,
   )
-         
+nochild_degree_data <-
+  read_csv(
+    file = "inputs/data/nochild_health.csv",
+    show_col_types = FALSE,
+  )
+nochild_degree_data <-
+  read_csv(
+    file = "inputs/data/nochild_marital.csv",
+    show_col_types = FALSE,
+  )
