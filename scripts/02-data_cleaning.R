@@ -125,7 +125,6 @@ write_csv(
   file = "outputs/data/clean_data_health.csv"
 )
 
-
 write_csv(
   x = clean_data_marital,
   file = "outputs/data/clean_data_marital.csv"
