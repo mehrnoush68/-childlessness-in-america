@@ -52,3 +52,23 @@ rownames(percentages_sex) <- gender_labels
 
 print(percentages_sex)
 
+# Simulated data for table_nochild_health
+health_labels <- c("Excellent", "Good", "Fair", "Poor")
+
+# Generate random percentages for each gender and year
+percentages_health <- matrix(runif(length(health_labels) * length(years), min = 5, max = 70), nrow = length(health_labels))
+colnames(percentages_health) <- years
+rownames(percentages_health) <- health_labels
+
+print(percentages_health)
+
+# Simulated data for table_nochild_marital
+marital_labels <- c("Never married", "Married", "Separated", "Divorced", "Widowed")
+
+# Generate random percentages for each gender and year
+percentages_marital <- matrix(runif(length(marital_labels) * length(years), min = 5, max = 70), nrow = length(marital_labels))
+colnames(percentages_marital) <- years
+rownames(percentages_marital) <- marital_labels
+
+print(percentages_marital)
+

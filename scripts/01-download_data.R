@@ -36,12 +36,12 @@ nochild_degree_data <-
     file = "inputs/data/nochild_higestdegree.csv",
     show_col_types = FALSE,
   )
-nochild_degree_data <-
+nochild_health_data <-
   read_csv(
     file = "inputs/data/nochild_health.csv",
     show_col_types = FALSE,
   )
-nochild_degree_data <-
+nochild_marital_data <-
   read_csv(
     file = "inputs/data/nochild_marital.csv",
     show_col_types = FALSE,
