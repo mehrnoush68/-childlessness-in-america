@@ -93,6 +93,7 @@ It is important to note that the GSS data underwent specific naming procedures f
 
 @tbl-nochild-age demonstrates a clear trend of increasing childlessness across age groups over the selected years. As evident from the data, the percentage of individuals without children has steadily risen in all age groups, with the most significant increase observed in the younger age groups (18-34 and 35-49). This trend suggests a shift in childbearing patterns, with individuals potentially delaying or forgoing parenthood altogether.
 
+\newpage
 
 ```{r}
 #| echo: false
@@ -236,7 +237,7 @@ kable(table_nochild_health_subset,
 
 ```
 
-@tbl-nochild-marital explores people's marital status and childlessness. Trends of childlessness vary with dataset. Unsurprisingly, people who are never married have the highest percentage of childlessness. However, those who are divorced, widowed and separated have fluctuating percentages of childlessness, which is understandable due to the complex emotional nature of these marital statuses.
+@tbl-nochild-marital explores people's marital status and childlessness. Trends of childlessness vary with this dataset. Unsurprisingly, people who are never married have the highest percentage of childlessness. However, those who are divorced, widowed and separated have fluctuating percentages of childlessness, which is understandable due to the complex emotional nature of these marital statuses.
 
 
 ```{r}
@@ -429,7 +430,7 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Condition of health`)) 
 
 @fig-nochild-marital illustrates @tbl-nochild-marital, which explores marital status of people who are childless over a span of 50 years in the United States (1972-2022). The graph contains trend lines of varying marital statuses-Divorced, Married, Never married, Separated and Widowed-and how each has changed over the years in terms of childbearing status.
 
-The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
+The graph demonstrates that a significant reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
 
 ```{r}
 #| echo: false
