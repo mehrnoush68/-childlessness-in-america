@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Downloads the data from US General Social Survey
-# Author: Mehrnoush Mohammadi
+# Author: Mehrnoush Mohammadi & Quang Mai
 # Date: 2 March 2024
 # Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT

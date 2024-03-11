@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Cleans the raw plane data childlessness in America
-# Author: Mehrnoush Mohammadi
+# Author: Mehrnoush Mohammadi & Quang Mai
 # Date: 2 March 2024
 # Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT

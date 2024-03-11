@@ -1,6 +1,8 @@
 ---
 title: "Understanding the Landscape of Childlessness in the U.S.: A Data-Driven Exploration (1972-2022)"
-author: Mehrnoush Mohammadi & Quang Mai
+author: 
+  - Mehrnoush Mohammadi 
+  - Quang Mai
 thanks: "Code and data are available at: https://github.com/mehrnoush68/childlessness-in-america.git"
 date: today
 date-format: long
@@ -523,14 +525,14 @@ The survey questions are available here under each trend: https://gssdataexplore
 - Female
 - Male
 
-(@) Are you currently--married, widowed, divorced, separated, or have you never been married?:
+(@) Are you currently:
 - Married
 - Widowed
 - Divorced
 - Separated
 - Never married
 
-(@) Would you say your own health, in general, is excellent, good, fair, or  poor?:
+(@) Would you say your own health, in general:
 - Excellent
 - Good
 - Fair
