@@ -1,10 +1,10 @@
 ---
 title: "Understanding the Landscape of Childlessness in the U.S.: A Data-Driven Exploration (1972-2022)"
-author: Mehrnoush Mohammadi
+author: Mehrnoush Mohammadi & Quang Mai
 thanks: "Code and data are available at: https://github.com/mehrnoush68/childlessness-in-america.git"
 date: today
 date-format: long
-abstract: "This paper investigates trends in childlessness in the United States from 1972 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society."
+abstract: "This paper investigates trends in childlessness in the United States from 1972 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, health condition, marital status and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society."
 format: pdf
 number-sections: true
 toc: true
@@ -22,6 +22,7 @@ library(knitr)
 library(kableExtra)
 library(ggplot2)
 library(dplyr)
+library(readr)
 
 #### Load data ####
 table_nochild_age <-
@@ -48,33 +49,47 @@ table_nochild_sex <-
     show_col_types = FALSE
   )
 
+table_nochild_marital <-
+  read_csv(
+    file = "../data/clean_data_marital.csv",
+    show_col_types = FALSE
+  )
+
+table_nochild_health <-
+  read_csv(
+    file = "../data/clean_data_health.csv",
+    show_col_types = FALSE
+  )
+
 ```
 
 
-# Introduction
-The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a societal norm, having children is now a conscious choice faced by an increasing number of individuals. This paper delves into this phenomenon by examining various datasets encompassing critical factors like age, gender, education, socioeconomic class, and national childbearing rates over the past 50 years.
+# Introduction {#sec-intro}
+The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a societal norm, having children now becomes a choice. This paper looks into this phenomenon by examining various datasets on factors such as age, gender, education, socioeconomic class, health conditions and marital status, and how they affect childbearing rates over the past 50 years.
 
-Analyzing these factors offers a window into understanding not only the prevalence of childlessness within different segments of the population but also the potential drivers behind this trend. Existing research suggests a complex interplay of factors, including economic considerations, rising educational attainment, changing social norms related to career and family life, and individual preferences.
+Analyzing these factors offers a window into understanding not only the prevalence of childlessness within different segments of the population but also the potential drivers behind this trend. Existing research suggests a complex interplay of factors, including economic considerations, rising educational attainment, changing social norms related to career and family life, and individual preferences [@voluntaryChild].
 
-This paper aims to unpack these potential contributing factors and explore their impact on the rise of childlessness in America. By analyzing the data, I seek to answer crucial questions: What are the key factors contributing to this trend? How does childlessness manifest differently across various demographic groups? Finally, what are the potential social, economic, and individual consequences of this evolving family structure in the United States? Understanding these dynamics is crucial for shaping informed policy discussions and navigating the implications of childlessness in a rapidly changing world. 
+This paper aims to unpack these factors and explore their impact on the rise of childlessness in America. By analyzing the data, we seek to answer crucial questions: What are the key factors contributing to this trend? How does childlessness manifest differently across demographic groups? Finally, what are the potential social, economic, and individual consequences of this new family structure in the United States? Understanding these dynamics is crucial in having an informed policy discussions and navigating the implications of childlessness in a rapidly changing world. 
+
+Structurally, in @sec-intro, our paper starts with a brief dissection of the nature of childlessness in America and the contributing factors. Subsequently, in @sec-data and @sec-result, we talk about the nature of the data obtained and analyze the results garnered from the data with suitable tables and charts. Next, @sec-discussion provides further insights and future areas of study. Finally, @sec-data concludes and summarizes our main findings. To complete the paper, @sec-appendix clarifies the variables within each dataset that we've used in our paper.
 
 The graphs and tables in this paper were created in R Studio using R [@citeR] and the analysis in a Quarto document. The analysis was conducted with the use of the `ggplot` [@ggplotRef], `tiddyverse` [@tidyverseRef], `knitr` [@knitrRef], `readr` [@readRef], `kableExtra` [@kableextraRef], `janitor` [@janitorRef] and `dyplr` [@dplRef ] packages.
 
 
 
-# Data
-This paper utilizes a multifaceted approach, drawing on various datasets to illuminate the complexities of childlessness in the United States. One primary source is the General Social Survey (GSS), a long-running and highly respected survey conducted by the National Opinion Research Center (NORC) at the University of Chicago [@gss], from 1972 to 2022.
+# Data {#sec-data}
+This paper uses a multifaceted approach, drawing on various datasets to understand the complexities of childlessness in the United States. One primary source is the General Social Survey (GSS), a long-running and highly respected survey conducted by the National Opinion Research Center (NORC) at the University of Chicago [@gss], from 1972 to 2022.
 
 ## Source Data
 
-The 2022 iteration of the GSS, for the first time in its history, incorporated a combination of in-person, web self-administered, and phone interview methods. This expansion in data collection methods offers a potentially richer and more diverse sample, while acknowledging that specific variables might be limited to certain modes. The GSS team is transparent about these limitations and welcomes feedback from the research community to continuously improve their methodology.
+The 2022 iteration of the GSS, for the first time in its history, incorporated a combination of in-person, web self-administered, and phone interview methods. This expansion in data collection methods offers a potentially richer and more diverse sample. The GSS team is transparent about these limitations and welcomes feedback from the research community to continuously improve their methodology.
 
-From the GSS, I utilize several key variables relevant to my analysis:
+From the GSS, we utilize several key variables relevant to our analysis:
 
 * Children: This variable captures the number of children ever born alive to the respondent, providing a direct measure of childlessness (having no children).
 * Year: This variable allows to analyze trends in childlessness over time, encompassing the chosen time frame for the survey.
 * Age: This variable, categorized into relevant age groups (e.g., 18-34, 35-49, etc.), enables us to understand how childlessness manifests across different age demographics.
-It is important to note that the GSS data underwent specific recoding procedures for this analysis. For instance, the original "CHILD" variable was recoded to create the "childs" variable used here, and age categories were grouped for visualization purposes. 
+It is important to note that the GSS data underwent specific naming procedures for this analysis. For instance, the original "CHILD" variable was renamed into the the "childs" variable used here, and age categories were grouped for visualization purposes. 
 
 @tbl-nochild-age demonstrates a clear trend of increasing childlessness across age groups over the selected years. As evident from the data, the percentage of individuals without children has steadily risen in all age groups, with the most significant increase observed in the younger age groups (18-34 and 35-49). This trend suggests a shift in childbearing patterns, with individuals potentially delaying or forgoing parenthood altogether.
 
@@ -103,9 +118,9 @@ kable(table_nochild_age_subset,
 ```
 
 ### Exploring Socioeconomic Class and Educational Attainment
-To gain a deeper understanding of the factors influencing these trends, I delve into additional data sets from NORC (@gss) examining the relationship between childlessness and socioeconomic class @tbl-nochild-class and educational attainment @tbl-nochild-degree.
+To gain a deeper understanding of the factors influencing these trends, we look into additional data sets from NORC (@gss) examining the relationship between childlessness and socioeconomic class @tbl-nochild-class and educational attainment @tbl-nochild-degree.
 
-From the GSS, I utilize several key variables to enrich my analysis and explore the potential influence of various factors on childbearing decisions:
+From the GSS, we utilize several key variables to enrich our analysis and explore the potential influence of various factors on childbearing decisions:
 
 * Socioeconomic Class: Data on socioeconomic class, often measured by income or occupation, will be utilized to understand the impact of economic factors on childbearing choices.
 * Educational Attainment: Data on educational attainment, such as highest degree obtained, will be incorporated to explore the relationship between educational level and childbearing. This data can be obtained from sources like the National Center for Education Statistics.
@@ -137,7 +152,6 @@ kable(table_nochild_class_subset,
 
 @tbl-nochild-degree explores the association between educational attainment and childlessness. Interestingly, the data indicates a nuanced relationship. While individuals with higher educational degrees (college+) display a slightly higher percentage of childlessness compared to those with lower degrees, the difference is not as substantial as observed with socioeconomic class. This suggests that educational attainment might play a complex role in childbearing decisions, potentially influenced by factors like career aspirations, financial considerations, and personal preferences.
 
-\newpage
 ```{r}
 #| echo: false
 #| include: true
@@ -187,6 +201,67 @@ kable(table_nochild_sex_subset,
 
 ```
 
+### Exploring Health Conditions and Marital Status 
+
+In addition, additional data sets from NORC [@gss] were also leveraged to understand the context of childlessness in America from 1972-2022. @tbl-nochild-health and @tbl-nochild-marital present an interesting connection between childlessness and health conditions and martial status. 
+
+From the GSS, we utilize several key variables relevant to our analysis:
+
+* Health Conditions: This variable, measured by medical check-ups of individuals who have been surveyed, will be used to clarify the the context behind childlessness of those with varying health status.
+* Marital Status: This variable enables us to see if marriage is a determining factor in childbearing decisions.  
+
+@tbl-nochild-health uncovers the relationship between health conditions and childlessness. Intriguingly, those with 'excellent' and 'good' health are substantially more likely to be childless than those with 'fair' and 'poor' health. Several factors are attributable to this fact, but foremost careeer, lifestyle differences and financial considerations might come into play. Though, more data is needed to clarify the context of this trend, especially coupling it with variables like educational attainment or socioeconomic class. In addition, sampling bias might factor into this trend, where it's assumable that people with excellent health are often the younger population and those with less desirable health are older.
+
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: tbl-nochild-health
+
+# Selected years to show better on the paper
+random_years <- c("Condition of health", "1972", "1980", "1990", "2000", "2010", "2022")
+
+# Subset the data with only the selected columns
+table_nochild_health_subset <- table_nochild_health |>
+  select(all_of(random_years))
+
+# Print the table with formatting
+kable(table_nochild_health_subset, 
+      caption = "Childless Percentage of Population by Health Conditions and Selected Years", 
+      align = "c",
+      col.names = random_years,
+      row.names = FALSE) |>
+  kable_styling(latex_options = c("striped", "hold_position"), bootstrap_options = "striped", full_width = FALSE)
+
+```
+
+@tbl-nochild-marital explores people's marital status and childlessness. Trends of childlessness vary with dataset. Unsurprisingly, people who are never married have the highest percentage of childlessness. However, those who are divorced, widowed and separated have fluctuating percentages of childlessness, which is understandable due to the complex emotional nature of these marital statuses.
+
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: tbl-nochild-marital
+
+# Selected years to show better on the paper
+random_years <- c("Marital status", "1972", "1980", "1990", "2000", "2010", "2022")
+
+# Subset the data with only the selected columns
+table_nochild_marital_subset <- table_nochild_marital |>
+  select(all_of(random_years))
+
+# Print the table with formatting
+kable(table_nochild_marital_subset, 
+      caption = "Childless Percentage of Population by Marital Status and Selected Years", 
+      align = "c",
+      col.names = random_years,
+      row.names = FALSE) |>
+  kable_styling(latex_options = c("striped", "hold_position"), bootstrap_options = "striped", full_width = FALSE)
+
+```
+
 ## Data Limitations
 While the data utilized in this paper provides valuable insights into childlessness in the United States, it is important to acknowledge some limitations:
 
@@ -205,9 +280,14 @@ Survey data may be susceptible to measurement errors due to various factors like
 
 While acknowledging the importance of gender disparities, the analysis presented here only provides a preliminary exploration through a single table (@tbl-nochild-sex). Further research dedicated to understanding nuanced gender differences in childbearing experiences and the complex interplay of individual and societal factors is needed.
 
-# Result and Analysis
+### Decontextualized variables
 
-@fig-nochild-age illustrates of @tbl-nochild-age which is a consistent rise in childlessness across all age groups in the United States from 1972 to 2022. 
+While these datasets aim to illuminate on the general time trends of childlessness with each variable measured, they are often de-contextualized for the same purpose. For instance, in @tbl-nochild-marital, there is no clarifying note on whether people who declared themselves as 'divorced' are divorced once or more. This can be extremely narrowing, and exclude nuances when analyzing the contexts behind childlessness.
+
+
+# Result and Analysis {#sec-result}
+
+@fig-nochild-age illustrates @tbl-nochild-age, which shows a consistent rise in childlessness across all age groups in the United States from 1972 to 2022. 
 
 ```{r}
 #| echo: false
@@ -261,13 +341,13 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Class Identification`))
 
 ```
 
-People and households are divided into groups based on their socioeconomic status. The lower class experiences economic hardship, while the Working Class earns limited wages and faces job insecurity. The middle class has white-collar or professional occupations and enjoys a comfortable lifestyle. The upper class has substantial wealth and enjoys a privileged lifestyle with exclusive amenities [@pewresearch2022].
+People and households are divided into groups based on their socioeconomic status. The lower class experiences economic hardship, while the working class earns limited wages and faces job insecurity. The middle class has white-collar or professional occupations and enjoys a comfortable lifestyle. The upper class has substantial wealth and enjoys a privileged lifestyle with exclusive amenities [@pewresearch2022].
 
-While all classes show an increase in @fig-nochild-class, the data suggests the most significant rise occurred among the Lower Class, with their percentage of childless individuals nearly doubling from approximately 17.16% in 1972 to around 34.46% in 2022, marking a substantial increase of approximately 101.04% over the specified period. The Working Class also experienced a significant increase, from around 21.83% in 1972 to approximately 31.44% in 2022, indicating a rise of roughly 43.98%. Additionally, the Middle Class saw a slight increase, from approximately 28.24% in 1972 to about 30.09% in 2022, representing a rise of approximately 6.55%. Similarly, the Upper Class saw an increase, with their percentage of childless individuals climbing from approximately 20.24% in 1972 to about 27.87% in 2022, indicating an increase of roughly 37.71%.
+While all classes show an increase in @fig-nochild-class, the data suggests the most significant rise occurred among the lower class, with their percentage of childless individuals nearly doubling from approximately 17.16% in 1972 to around 34.46% in 2022, marking a substantial increase of approximately 101.04% over the specified period. The working class also experienced a significant increase, from around 21.83% in 1972 to approximately 31.44% in 2022, indicating a rise of roughly 43.98%. Additionally, the middle class saw a slight increase, from approximately 28.24% in 1972 to about 30.09% in 2022, representing a rise of approximately 6.55%. Similarly, the upper class saw an increase, with their percentage of childless individuals climbing from approximately 20.24% in 1972 to about 27.87% in 2022, indicating an increase of roughly 37.71%.
 
 @fig-nochild-degree visualization of @tbl-nochild-degree, presents a comparative analysis of childlessness across individuals with different levels of educational attainment (Less than High School, High School and College's Degree or Higher) in the United States from 1972 to 2022. The graph utilizes line trends to depict the percentage of childless individuals within each degree category over the five decades.
 
-The data reveals a distinct pattern across educational groups. Individuals with a high school diploma consistently exhibit the highest percentage of childlessness throughout the entire period, ranging from around 28.15% in 1972 to 34.56% in 2022. Conversely, The percentage of childless individuals with a College and higher degree has decreased from 32.85% in 1972 to 29.84% in 2022. The trend for individuals with a with less than a high school education increased from 16.97% in 1972 to 22.90% in 2022.
+The data reveals a distinct pattern across educational groups. Individuals with a high school diploma consistently exhibit the highest percentage of childlessness throughout the entire period, ranging from around 28.15% in 1972 to 34.56% in 2022. Conversely, The percentage of childless individuals with a college and higher degree has decreased from 32.85% in 1972 to 29.84% in 2022. The trend for individuals with a with less than a high school education increased from 16.97% in 1972 to 22.90% in 2022.
 ```{r}
 #| echo: false
 #| include: true
@@ -293,7 +373,7 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Degree`)) +
 
 \newpage
 
-@fig-nochild-gender illustrates of @tbl-nochild-sex, explores gender differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
+@fig-nochild-gender illustrates @tbl-nochild-sex, which explores gender differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
 
 The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
 
@@ -319,9 +399,63 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Gender`)) +
 
 ```
 
-The figures presented in this paper were generated using data from the [@gss]. These figures visually represent the key findings related to the trends and patterns in childlessness across different age, social classes, educational attainment levels, and genders in the United States over the past five decades (1972-2022). It is important to remember that these figures solely present descriptive data and do not establish causal relationships. The Discussion section will delve deeper into potential explanations for the observed trends and explore the broader implications of these findings.
+@fig-nochild-health visualizes @tbl-nochild-health, which explores health differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes trend lines to depict the percentage of childless individuals categorized by health conditions (Excellent, Good, Fair Poor).
 
-# Discussion
+Overall, the graph illustrates an increase in childlessness accross all health levels and conditions approaching 2022. As mentioned, people with excellent health has the highest percentage of childlessness, having a 10.49% increase throughout the 50-year period (28.26% in 1972 to 38.75% in 2022). People with good and fair health exhibit similar rate of childlessness in 2022, at about 30%. In particular, people with fair health markedHowever, people with poor health, once having the lowest rate of childlessness (at 12.27% in 1972), now increases to 20.40% in 2022, which translates to a substantial 8.13% increase. 
+
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-health
+#| fig-cap: "Percentage Childless over Time by Health Conditions"
+
+# Pivot the data from wide to long format
+data_long <- pivot_longer(table_nochild_health, -`Condition of health`, names_to = "Year", values_to = "Percentage")
+
+# Convert Year column to integer
+data_long$Year <- as.integer(data_long$Year)
+
+# Plot the data
+ggplot(data_long, aes(x = Year, y = Percentage, color = `Condition of health`)) +
+  geom_line() +
+  geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
+  labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Health", color = "Condition of health") +
+  theme_minimal()
+
+```
+
+
+@fig-nochild-marital illustrates @tbl-nochild-marital, which explores marital status of people who are childless over a span of 50 years in the United States (1972-2022). The graph contains trend lines of varying marital statuses-Divorced, Married, Never married, Separated and Widowed-and how each has changed over the years in terms of childbearing status.
+
+The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-marital
+#| fig-cap: "Percentage Childless over Time by Marital Status"
+
+# Pivot the data from wide to long format
+data_long <- pivot_longer(table_nochild_marital, -`Marital status`, names_to = "Year", values_to = "Percentage")
+
+# Convert Year column to integer
+data_long$Year <- as.integer(data_long$Year)
+
+# Plot the data
+ggplot(data_long, aes(x = Year, y = Percentage, color = `Marital status`)) +
+  geom_line() +
+  geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
+  labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Marital Status", color = "Marital status") +
+  theme_minimal()
+
+```
+
+The figures presented in this paper were generated using data from the [@gss]. These figures visually represent the key findings related to the trends and patterns in childlessness across different age, social classes, educational attainment levels, and genders in the United States over the past five decades (1972-2022). It is important to remember that these figures solely present descriptive data and do not establish causal relationships. The Discussion section will further analyze the observed trends and explore the broader implications of these findings.
+
+# Discussion {#sec-discussion}
 
 ## Rising Childlessness: Patterns and Trends
 The findings presented in this paper reveal a consistent and concerning trend of rising childlessness across various demographics in the United States. As Figure 1 illustrates, the percentage of individuals without children has steadily increased across all age groups over the past 50 years, with the most significant rise observed among younger individuals (18-34 and 35-49). 
@@ -343,7 +477,8 @@ To gain a deeper understanding of childlessness, there are some crucial next ste
 
 By addressing these limitations and pursuing the proposed next steps, future research can contribute significantly to a more nuanced and in-depth understanding of childlessness and its various aspects.
 
-# Conclusion
+# Conclusion {#sec-conclusion}
+
 This paper investigated the rising trend of childlessness in the United States, highlighting its prevalence across various demographics. By analyzing data from the GSS, it revealed consistent and concerning increases in the percentage of individuals without children. While definitive causal explanations remain elusive due to limitations in the analysis, the discussion explored potential contributing factors, including economic considerations, educational aspirations, shifting social norms, and individual preferences. Additionally, the potential consequences of this trend, spanning across social, economic, and individual realms, were examined.
 
 Moving forward, further research with longitudinal studies and diverse data sources including qualitative interviews, alongside a mixed methods approach, is crucial to gain a comprehensive understanding of childlessness, its nuances, and its multifaceted implications. This knowledge can inform future policies and interventions aimed at fostering a supportive environment for individuals and families as they navigate the complex decisions around childbearing in the 21st century.
@@ -353,7 +488,7 @@ Moving forward, further research with longitudinal studies and diverse data sour
 
 \appendix
 
-# Appendix
+# Appendix {#sec-appendix}
 The survey questions are available here under each trend: https://gssdataexplorer.norc.org/trends 
 
 ## Survey Questions from GSS
@@ -386,18 +521,20 @@ The survey questions are available here under each trend: https://gssdataexplore
 - Female
 - Male
 
-(@) Are you currently:
+(@) RESPONDENT'S MARITAL STATUS:
 - Married
 - Widowed
 - Divorced
 - Separated
-- Never been married
+- Never married
 
-(@) Would you say your own health, in general:
+(@) RESPONDENT'S HEALTH CONDITION:
 - Excellent
 - Good
 - Fair
 - Poor
+
+\newpage
 
 # References
 
