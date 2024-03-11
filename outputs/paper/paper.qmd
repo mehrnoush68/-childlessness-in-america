@@ -71,7 +71,7 @@ Analyzing these factors offers a window into understanding not only the prevalen
 
 This paper aims to unpack these factors and explore their impact on the rise of childlessness in America. By analyzing the data, we seek to answer crucial questions: What are the key factors contributing to this trend? How does childlessness manifest differently across demographic groups? Finally, what are the potential social, economic, and individual consequences of this new family structure in the United States? Understanding these dynamics is crucial in having an informed policy discussions and navigating the implications of childlessness in a rapidly changing world. 
 
-Structurally, in @sec-intro, our paper starts with a brief dissection of the nature of childlessness in America and the contributing factors. Subsequently, in @sec-data and @sec-result, we talk about the nature of the data obtained and analyze the results garnered from the data with suitable tables and charts. Next, @sec-discussion provides further insights and future areas of study. Finally, @sec-data concludes and summarizes our main findings. To complete the paper, @sec-appendix clarifies the variables within each dataset that we've used in our paper.
+Structurally, in @sec-intro, our paper starts with a brief dissection of the nature of childlessness in America and the contributing factors. Subsequently, in @sec-data and @sec-result, we talk about the nature of the data obtained and analyze the results garnered from the data with suitable tables and charts. Next, @sec-discussion provides further insights and future areas of study. Finally, @sec-data concludes and summarizes our main findings. To complete the paper, @sec-appendix clarifies how each variable within each dataset is measured.
 
 The graphs and tables in this paper were created in R Studio using R [@citeR] and the analysis in a Quarto document. The analysis was conducted with the use of the `ggplot` [@ggplotRef], `tiddyverse` [@tidyverseRef], `knitr` [@knitrRef], `readr` [@readRef], `kableExtra` [@kableextraRef], `janitor` [@janitorRef] and `dyplr` [@dplRef ] packages.
 
@@ -374,7 +374,7 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Degree`)) +
 
 \newpage
 
-@fig-nochild-gender illustrates @tbl-nochild-sex, which explores gender differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
+@fig-nochild-gender explores gender differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes line trends to depict the percentage of childless individuals categorized by gender (Male and Female).
 
 The data reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
 
@@ -400,9 +400,9 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Gender`)) +
 
 ```
 
-@fig-nochild-health visualizes @tbl-nochild-health, which explores health differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes trend lines to depict the percentage of childless individuals categorized by health conditions (Excellent, Good, Fair Poor).
+@fig-nochild-health explores health differences in childlessness within the United States over a 50-year period (1972-2022). The graph utilizes trend lines to depict the percentage of childless individuals categorized by health conditions (Excellent, Good, Fair Poor).
 
-Overall, the graph illustrates an increase in childlessness accross all health levels and conditions approaching 2022. As mentioned, people with excellent health has the highest percentage of childlessness, having a 10.49% increase throughout the 50-year period (28.26% in 1972 to 38.75% in 2022). People with good and fair health exhibit similar rate of childlessness in 2022, at about 30%. In particular, people with fair health markedHowever, people with poor health, once having the lowest rate of childlessness (at 12.27% in 1972), now increases to 20.40% in 2022, which translates to a substantial 8.13% increase. 
+Overall, the data illustrates an increase in childlessness accross all health levels and conditions approaching 2022. As mentioned, people with excellent health has the highest percentage of childlessness, having a 10.49% increase throughout the 50-year period (28.26% in 1972 to 38.75% in 2022). People with good and fair health exhibit similar rate of childlessness in 2022, at about 30%. In particular, people with fair health markedHowever, people with poor health, once having the lowest rate of childlessness (at 12.27% in 1972), now increases to 20.40% in 2022, which translates to a substantial 8.13% increase. 
 
 
 ```{r}
@@ -428,9 +428,10 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Condition of health`)) 
 ```
 
 
-@fig-nochild-marital illustrates @tbl-nochild-marital, which explores marital status of people who are childless over a span of 50 years in the United States (1972-2022). The graph contains trend lines of varying marital statuses-Divorced, Married, Never married, Separated and Widowed-and how each has changed over the years in terms of childbearing status.
+@fig-nochild-marital explores marital status of people who are childless over a span of 50 years in the United States (1972-2022). The graph contains trend lines of varying marital statuses-Divorced, Married, Never married, Separated and Widowed-and how each has changed over the years in terms of childbearing status.
 
-The graph demonstrates that a significant reveals a gradual increase in childlessness for both genders over the past five decades. However, females consistently exhibit a lower percentage of childlessness compared to males throughout the entire period. While the gap appears to be slightly narrowing over time, females still have a lower percentage by around 8 percentage points in 2022 (approximately 28.32% for females and 36.09% for males).
+The data demonstrates that a significant portion of people who have never married are childless. However, more and more people are reluctant to get married but still consider having children. This is observable in the childlessness percentage decrease of people who never marry, decreasing from 96.73% in 1972 to 72.53% in 2022. For people who are divorced, separated and widowed, this percentage flucatuates, displaying the complex dynamics between these relationship status and childbearing. For married people though, this childlessness percentage also decreases, from 10.51% in 1972 to 13.97% in 2022. This again demonstrates the overall decrease of childbirths due to varying factors.
+
 
 ```{r}
 #| echo: false
@@ -522,14 +523,14 @@ The survey questions are available here under each trend: https://gssdataexplore
 - Female
 - Male
 
-(@) RESPONDENT'S MARITAL STATUS:
+(@) Are you currently--married, widowed, divorced, separated, or have you never been married?:
 - Married
 - Widowed
 - Divorced
 - Separated
 - Never married
 
-(@) RESPONDENT'S HEALTH CONDITION:
+(@) Would you say your own health, in general, is excellent, good, fair, or  poor?:
 - Excellent
 - Good
 - Fair
