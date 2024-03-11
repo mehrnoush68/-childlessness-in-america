@@ -1,4 +1,4 @@
-# Understanding the Landscape of Childlessnessin the U.S.: A Data-Driven Exploration (50-Year Trends)
+# Understanding the Landscape of Childlessnessin the U.S.: A Data-Driven Exploration (1972-2022)
 
 ## Abstract
 
@@ -12,8 +12,12 @@ The repo is structured as:
 -   `inputs/sketches` contains the original sketches used to plan the project and data analysis.
 -   `inputs/LLM` contains our ChatGPT history
 -   `outputs/data` contains the cleaned dataset that was constructed.
--   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the 
+-   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the
 -   `scripts` contains the R scripts used to simulate, download and clean data.
+
+## Data Extraction
+
+The raw data was downloaded from [GSS Data Explorer](https://gssdataexplorer.norc.org/trend) in .xlsx format and saved as .csv on a computer.
 
 ## Statement on LLM usage
 
