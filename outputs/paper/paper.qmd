@@ -496,9 +496,40 @@ Moving forward, further research with longitudinal studies and diverse data sour
 \appendix
 
 # Appendix {#sec-appendix}
-The survey questions are available here under each trend: https://gssdataexplorer.norc.org/trends 
+The supplementary survey is accessible through this link: https://forms.gle/DsFgJCKPeCtdqZKL6 
+
+## Survey Preamble
+The General Social Survey (GSS) collects data on social trends to help track changes in Canadians' living conditions and well-being over time. Also, it provides information on specific social policy issues that are currently or potentially important.
+
+We are conducting a study to investigate the reasons behind childlessness in different groups of people. To do so, we will analyze various data sets, including information on age, gender, education, socioeconomic status, health conditions, and marital status. By examining these factors, we hope to gain insight into how they impact rates of childbearing.
+
+Participation in this survey is voluntary, and all responses will be kept anonymous. If you choose to participate, you will have the freedom to skip any questions and can withdraw from the survey at any time. Your individual responses will be recorded in our data set with a unique identification number for analysis purposes only.
+
+Thank you for taking the time to complete this survey. If you have any questions or require further information, please feel free to contact mm.mohammadi@mail.utoronto.ca.
 
 ## Survey Questions from GSS
+
+(@) How old are you?
+(short answer text)
+
+(@) Gender:
+- Female
+- Male
+- Prefer not to say
+
+(@) Are you currently:
+- Married
+- Widowed
+- Divorced
+- Separated
+- Never married
+
+(@) What is your highest degree?
+- College +
+- High school
+- Less than high school
+
+
 (@) How many children have you ever had?  Please count all that were born alive at any time (including any you had from a previous marriage).
 - 0
 - 1
@@ -510,8 +541,6 @@ The survey questions are available here under each trend: https://gssdataexplore
 - 7
 - 8 or more
 
-(@) RESPONDENT'S AGE
-(short answer text)
 
 (@) If you were asked to use one of four names for your social class, which would you say you belong in: 
 - The lower class 
@@ -519,21 +548,6 @@ The survey questions are available here under each trend: https://gssdataexplore
 - The middle class
 - The upper class
 
-(@) RESPONDENT'S DEGREE:
-- College +
-- High school
-- Less than high school
-
-(@) RESPONDENT'S SEX:
-- Female
-- Male
-
-(@) Are you currently:
-- Married
-- Widowed
-- Divorced
-- Separated
-- Never married
 
 (@) Would you say your own health, in general:
 - Excellent
