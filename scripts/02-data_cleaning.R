@@ -9,6 +9,9 @@
 
 #### Workspace setup ####
 library(tidyverse)
+library(magrittr)
+library(readr)
+library(dplyr)
 
 # List of input files
 input_files <- c(
@@ -20,26 +23,27 @@ input_files <- c(
   "nochild_marital.csv"
 )
 
-# Remove "_nochild" from file names
-input_files <- gsub("_nochild", "", input_files)
+# Remove "nochild_" from input file names and create output file names
+output_files <- gsub("nochild_", "", input_files)
+
+# Remove "higest" from input file names and create output file names
+output_files[input_files == "nochild_higestdegree.csv"] <- "degree.csv"
 
 # List of output files
-output_files <- paste0("clean_data_", gsub("_nochild", "", tools::file_path_sans_ext(input_files)), ".csv")
-
+output_files <- paste0("clean_data_", tools::file_path_sans_ext(output_files), ".csv")
 
 
 # Loop over input files
-for (i in seq_along(input_files)) {
+for (input_file in input_files) {
   # Read data with show_col_types = FALSE
-  data <- read_csv(file.path("inputs/data", input_files[i]), show_col_types = FALSE)
+  data <- read_csv(file.path("inputs/data", input_file), show_col_types = FALSE)
   
   # Clean data
-  cleaned_data <- data %>%
+  cleaned_data <- data |>
     mutate(across(-1, ~as.numeric(gsub("\\s*\\(.*\\)", "", .))))
   
   # Write cleaned data to output file
-  output_file <- gsub("_nochild", "", output_files[i])
+  output_file <- output_files[input_files == input_file]
   write_csv(cleaned_data, file.path("outputs/data", output_file))
 }
-
 
