@@ -17,7 +17,11 @@ The repo is structured as:
 
 ## Data Extraction
 
-The raw data was downloaded from [GSS Data Explorer](https://gssdataexplorer.norc.org/trend) in .xlsx format and saved as .csv on a computer.
+We accessed raw data from the US General Social Survey on Gender and Marriage trends at [GSS Data Explorer](https://gssdataexplorer.norc.org/trend). The data is behind a sign-in. 
+
+To find the data, we went to the Gender and Marriage trends section and clicked on Children & Working link. Then, we found different trends related to Children & Working, such as Gender & Marriage, Current Affairs, Civil Liberties, Politics, and Religion & Spirituality. 
+
+Our focus was on the Gender and Marriage section for individuals with no children, with different ages, degrees, conditions of health, sex, and marital status breakdown.To download the data, we clicked on the export button and download the data in Excel format (.xlsx). We then saved it as a .csv format using Microsoft Excel.
 
 ## Statement on LLM usage
 

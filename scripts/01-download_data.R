@@ -7,42 +7,10 @@
 # Pre-requisites: Download the raw data from US General Social Survey (https://gssdataexplorer.norc.org/trends)
 
 
-#### Workspace setup ####
-library(tidyverse)
-library(readr)
-
-# Note: data is behind sign-in
-# data can be accessed at https://gssdataexplorer.norc.org/trends from the US General Social Survey
-# data was downloaded as .xlsx file format and saved as .csv format on the computer
-
-#### Load data ####
-nochild_age_data <-
-  read_csv(
-    file = "inputs/data/nochild_age.csv",
-    show_col_types = FALSE,
-  )
-nochild_class_data <-
-  read_csv(
-    file = "inputs/data/nochild_class.csv",
-    show_col_types = FALSE,
-  )
-nochild_sex_data <-
-  read_csv(
-    file = "inputs/data/nochild_sex.csv",
-    show_col_types = FALSE,
-  )
-nochild_degree_data <-
-  read_csv(
-    file = "inputs/data/nochild_higestdegree.csv",
-    show_col_types = FALSE,
-  )
-nochild_health_data <-
-  read_csv(
-    file = "inputs/data/nochild_health.csv",
-    show_col_types = FALSE,
-  )
-nochild_marital_data <-
-  read_csv(
-    file = "inputs/data/nochild_marital.csv",
-    show_col_types = FALSE,
-  )
+# We accessed data from the US General Social Survey on Gender and Marriage trends at https://gssdataexplorer.norc.org/trends. 
+# The data is behind a sign-in.
+# To find the data, we went to the Gender and Marriage trends section and clicked on Children & Working link.
+# Then, we found different trends related to Children & Working, such as Gender & Marriage, Current Affairs, Civil Liberties, Politics, and Religion & Spirituality.
+# Our focus was on the Gender and Marriage section for individuals with no children, with different ages, degrees, conditions of health, sex, and marital status breakdown.
+# To download the data, we clicked on the export button and download the data in Excel format (.xlsx). 
+# We then saved it as a .csv format using Microsoft Excel.
