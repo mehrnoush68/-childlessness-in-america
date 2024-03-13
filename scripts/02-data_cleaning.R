@@ -9,124 +9,37 @@
 
 #### Workspace setup ####
 library(tidyverse)
-library(readr)
-library(dplyr)
-library(knitr)
 
-#### Load data ####
-nochild_age_data <-
-  read_csv(
-    file = "inputs/data/nochild_age.csv",
-    show_col_types = FALSE,
-  )
-nochild_class_data <-
-  read_csv(
-    file = "inputs/data/nochild_class.csv",
-    show_col_types = FALSE,
-  )
-nochild_sex_data <-
-  read_csv(
-    file = "inputs/data/nochild_sex.csv",
-    show_col_types = FALSE,
-  )
-nochild_degree_data <-
-  read_csv(
-    file = "inputs/data/nochild_higestdegree.csv",
-    show_col_types = FALSE,
-  )
-nochild_health_data <-
-  read_csv(
-    file = "inputs/data/nochild_health.csv",
-    show_col_types = FALSE,
-  )
-nochild_marital_data <-
-  read_csv(
-    file = "inputs/data/nochild_marital.csv",
-    show_col_types = FALSE,
-  )
-
-# Cleaning Data
-data_cleaned_age <- nochild_age_data
-data_cleaned_class <- nochild_class_data
-data_cleaned_sex <- nochild_sex_data
-data_cleaned_degree <- nochild_degree_data
-data_cleaned_health <- nochild_health_data
-data_cleaned_marital <- nochild_marital_data
-
-
-
-# Define a function to clean the data
-clean_data_age <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-clean_data_class <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-clean_data_sex <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-clean_data_degree <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-clean_data_health <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-clean_data_marital <- function(x) {
-  as.numeric(gsub("\\s*\\(.*\\)", "", x))
-}
-
-# Clean the data
-clean_data_age <- data_cleaned_age |>
-  mutate(across(-1, clean_data_age))
-
-# Rename the 'age' column to 'Age'
-clean_data_age <- clean_data_age |>
-  rename(Age = age)
-
-clean_data_class <- data_cleaned_class |>
-  mutate(across(-1, clean_data_class))
-
-clean_data_sex <- data_cleaned_sex |>
-  mutate(across(-1, clean_data_sex))
-
-clean_data_degree <- data_cleaned_degree |>
-  mutate(across(-1, clean_data_degree))
-
-clean_data_marital <- data_cleaned_marital |>
-  mutate(across(-1, clean_data_marital))
-
-clean_data_health <- data_cleaned_health |>
-  mutate(across(-1, clean_data_health))
-
-
-# Save cleaned data
-write_csv(
-  x = clean_data_age,
-  file = "outputs/data/clean_data_age.csv"
+# List of input files
+input_files <- c(
+  "nochild_age.csv",
+  "nochild_class.csv",
+  "nochild_sex.csv",
+  "nochild_higestdegree.csv",
+  "nochild_health.csv",
+  "nochild_marital.csv"
 )
 
-write_csv(
-  x = clean_data_class,
-  file = "outputs/data/clean_data_class.csv"
-)
+# Remove "_nochild" from file names
+input_files <- gsub("_nochild", "", input_files)
 
-write_csv(
-  x = clean_data_sex,
-  file = "outputs/data/clean_data_sex.csv"
-)
+# List of output files
+output_files <- paste0("clean_data_", gsub("_nochild", "", tools::file_path_sans_ext(input_files)), ".csv")
 
-write_csv(
-  x = clean_data_degree,
-  file = "outputs/data/clean_data_degree.csv"
-)
 
-write_csv(
-  x = clean_data_health,
-  file = "outputs/data/clean_data_health.csv"
-)
 
-write_csv(
-  x = clean_data_marital,
-  file = "outputs/data/clean_data_marital.csv"
-)
+# Loop over input files
+for (i in seq_along(input_files)) {
+  # Read data with show_col_types = FALSE
+  data <- read_csv(file.path("inputs/data", input_files[i]), show_col_types = FALSE)
+  
+  # Clean data
+  cleaned_data <- data %>%
+    mutate(across(-1, ~as.numeric(gsub("\\s*\\(.*\\)", "", .))))
+  
+  # Write cleaned data to output file
+  output_file <- gsub("_nochild", "", output_files[i])
+  write_csv(cleaned_data, file.path("outputs/data", output_file))
+}
+
 
