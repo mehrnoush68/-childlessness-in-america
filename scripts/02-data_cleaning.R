@@ -33,6 +33,7 @@ output_files[input_files == "nochild_higestdegree.csv"] <- "degree.csv"
 output_files <- paste0("clean_data_", tools::file_path_sans_ext(output_files), ".csv")
 
 
+
 # Loop over input files
 for (input_file in input_files) {
   # Read data with show_col_types = FALSE
@@ -41,7 +42,12 @@ for (input_file in input_files) {
   # Clean data
   cleaned_data <- data |>
     mutate(across(-1, ~as.numeric(gsub("\\s*\\(.*\\)", "", .))))
-  
+
+  # Rename 'age' to 'Age' if 'age' exists in the column names
+  if (any(colnames(cleaned_data) == "age")) {
+    cleaned_data <- cleaned_data |>
+      rename(Age = age)
+  } 
   # Write cleaned data to output file
   output_file <- output_files[input_files == input_file]
   write_csv(cleaned_data, file.path("outputs/data", output_file))
