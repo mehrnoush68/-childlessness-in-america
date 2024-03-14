@@ -1,8 +1,9 @@
-# Understanding the Landscape of Childlessnessin the U.S.: A Data-Driven Exploration (1972-2022)
+# Understanding the Landscape of Childlessness in the U.S.
+##An analysis of General Social Survey data (1972-2022)
 
 ## Abstract
 
-This paper investigates trends in childlessness in the United States from 1970 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society.
+We investigate U.S. childlessness trends between 1972 and 2022 using data from the General Social Survey. The research focuses on the relationship between childlessness and factors such as age, gender, education, social class, health conditions, marital status, and number of children. We find rising childlessness across demographics, potentially linked to economic factors, education, and social norms. We explore the social and economic implications of this trend and emphasize the need for further research on childlessness.
 
 ## File Structure
 
