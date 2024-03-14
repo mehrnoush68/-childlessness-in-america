@@ -27,41 +27,17 @@ library(dplyr)
 library(readr)
 
 #### Load data ####
-table_nochild_age <-
-  read_csv(
-    file = "../data/clean_data_age.csv",
-    show_col_types = FALSE
-  )
+table_nochild_age <- read_csv(file = "../data/clean_data_age.csv",show_col_types = FALSE)
 
-table_nochild_class <-
-  read_csv(
-    file = "../data/clean_data_class.csv",
-    show_col_types = FALSE
-  )
+table_nochild_class <- read_csv(file = "../data/clean_data_class.csv",show_col_types = FALSE)
 
-table_nochild_degree <-
-  read_csv(
-    file = "../data/clean_data_degree.csv",
-    show_col_types = FALSE
-  )
+table_nochild_degree <- read_csv(file = "../data/clean_data_degree.csv",show_col_types = FALSE)
 
-table_nochild_sex <-
-  read_csv(
-    file = "../data/clean_data_sex.csv",
-    show_col_types = FALSE
-  )
+table_nochild_sex <- read_csv(file = "../data/clean_data_sex.csv",show_col_types = FALSE)
 
-table_nochild_marital <-
-  read_csv(
-    file = "../data/clean_data_marital.csv",
-    show_col_types = FALSE
-  )
+table_nochild_marital <- read_csv(file = "../data/clean_data_marital.csv",show_col_types = FALSE)
 
-table_nochild_health <-
-  read_csv(
-    file = "../data/clean_data_health.csv",
-    show_col_types = FALSE
-  )
+table_nochild_health <- read_csv(file = "../data/clean_data_health.csv",show_col_types = FALSE)
 
 ```
 
@@ -298,9 +274,9 @@ While these datasets aim to illuminate on the general time trends of childlessne
 #| label: fig-nochild-age
 #| fig-cap: "Percentage of Childless Adults by Age Group in the US (1972-2020)"
 
-nochild_age_data_long <- tidyr::pivot_longer(table_nochild_age, -Age, names_to = "year", values_to = "percentage")
+data_long_age <- tidyr::pivot_longer(table_nochild_age, -Age, names_to = "year", values_to = "percentage")
 
-ggplot(nochild_age_data_long, aes(x = as.integer(year), y = percentage, color = Age)) +
+ggplot(data_long_age, aes(x = as.integer(year), y = percentage, color = Age)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Age Group", color = "Age Group") +
@@ -330,13 +306,13 @@ Despite these limitations, the available data reveals a steady increase in the p
 #| fig-cap: "Percentage Childless over Time by Class"
 
 # Pivot the data from wide to long format
-data_long <- pivot_longer(table_nochild_class, -`Class Identification`, names_to = "Year", values_to = "Percentage")
+data_long_class <- pivot_longer(table_nochild_class, -`Class Identification`, names_to = "Year", values_to = "Percentage")
 
 # Convert Year column to integer
-data_long$Year <- as.integer(data_long$Year)
+data_long_class$Year <- as.integer(data_long_class$Year)
 
 # Plot the data
-ggplot(data_long, aes(x = Year, y = Percentage, color = `Class Identification`)) +
+ggplot(data_long_class, aes(x = Year, y = Percentage, color = `Class Identification`)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Class", color = "Breakdown Category") +
@@ -361,13 +337,13 @@ The data reveals a distinct pattern across educational groups. Individuals with 
 
 
 # Pivot the data from wide to long format
-data_long <- pivot_longer(table_nochild_degree, -`Degree`, names_to = "Year", values_to = "Percentage")
+data_long_degree <- pivot_longer(table_nochild_degree, -`Degree`, names_to = "Year", values_to = "Percentage")
 
 # Convert Year column to integer
-data_long$Year <- as.integer(data_long$Year)
+data_long_degree$Year <- as.integer(data_long_degree$Year)
 
 # Plot the data
-ggplot(data_long, aes(x = Year, y = Percentage, color = `Degree`)) +
+ggplot(data_long_degree, aes(x = Year, y = Percentage, color = `Degree`)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Degree", color = "Degree") +
@@ -390,13 +366,13 @@ The data reveals a gradual increase in childlessness for both genders over the p
 #| fig-cap: "Percentage Childless over Time by Gender"
 
 # Pivot the data from wide to long format
-data_long <- pivot_longer(table_nochild_sex, -`Gender`, names_to = "Year", values_to = "Percentage")
+data_long_sex <- pivot_longer(table_nochild_sex, -`Gender`, names_to = "Year", values_to = "Percentage")
 
 # Convert Year column to integer
-data_long$Year <- as.integer(data_long$Year)
+data_long_sex$Year <- as.integer(data_long_sex$Year)
 
 # Plot the data
-ggplot(data_long, aes(x = Year, y = Percentage, color = `Gender`)) +
+ggplot(data_long_sex, aes(x = Year, y = Percentage, color = `Gender`)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Gender", color = "Gender") +
@@ -416,13 +392,13 @@ Overall, the data shows an increase in childlessness across all health levels an
 #| fig-cap: "Percentage Childless over Time by Health Conditions"
 
 # Pivot the data from wide to long format
-data_long <- pivot_longer(table_nochild_health, -`Condition of health`, names_to = "Year", values_to = "Percentage")
+data_long_health <- pivot_longer(table_nochild_health, -`Condition of health`, names_to = "Year", values_to = "Percentage")
 
 # Convert Year column to integer
-data_long$Year <- as.integer(data_long$Year)
+data_long_health$Year <- as.integer(data_long_health$Year)
 
 # Plot the data
-ggplot(data_long, aes(x = Year, y = Percentage, color = `Condition of health`)) +
+ggplot(data_long_health, aes(x = Year, y = Percentage, color = `Condition of health`)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Health", color = "Condition of health") +
@@ -446,13 +422,13 @@ The data demonstrates that a significant portion of people who have never marrie
 #| fig-cap: "Percentage Childless over Time by Marital Status"
 
 # Pivot the data from wide to long format
-data_long <- pivot_longer(table_nochild_marital, -`Marital status`, names_to = "Year", values_to = "Percentage")
+data_long_marital <- pivot_longer(table_nochild_marital, -`Marital status`, names_to = "Year", values_to = "Percentage")
 
 # Convert Year column to integer
-data_long$Year <- as.integer(data_long$Year)
+data_long_marital$Year <- as.integer(data_long_marital$Year)
 
 # Plot the data
-ggplot(data_long, aes(x = Year, y = Percentage, color = `Marital status`)) +
+ggplot(data_long_marital, aes(x = Year, y = Percentage, color = `Marital status`)) +
   geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
   labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Marital Status", color = "Marital status") +
@@ -462,6 +438,106 @@ ggplot(data_long, aes(x = Year, y = Percentage, color = `Marital status`)) +
 ```
 
 The figures presented in this paper were generated using data from the [@gss]. These figures visually represent the key findings related to the trends and patterns in childlessness across different ages, social classes, educational attainment levels, and genders in the United States over the past five decades (1972-2022). It is important to remember that these figures solely present descriptive data and do not establish causal relationships. The Discussion section will further analyze the observed trends and explore the broader implications of these findings.
+
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-avg-marital
+#| fig-cap: "Average Childless Percentage of Population over Time by Marital Status"
+
+# Group the data by Year and calculate the average of Percentage for each year
+avg_data <- data_long_marital |>
+  group_by(Year) |>
+  summarise(Sum_Percentage = sum(Percentage, na.rm = TRUE)) |>
+  mutate(avg_Percentage = Sum_Percentage / 5)
+
+# Print the average data
+# print(avg_data)
+
+# Plot the data
+ggplot(avg_data, aes(x = Year, y = avg_Percentage)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Year", y = "Average Percentage of Population", title = "Average Childless Percentage of Population over Time by Marital Status") +
+  theme_minimal()
+
+```
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-avg-class
+#| fig-cap: "Average Percentage Childless over Time by Class"
+
+# Group the data by Year and calculate the average of Percentage for each year
+avg_data <- data_long_class |>
+  group_by(Year) |>
+  summarise(Sum_Percentage = sum(Percentage, na.rm = TRUE)) |>
+  mutate(avg_Percentage = Sum_Percentage / 4)
+
+# Print the average data
+# print(avg_data)
+
+# Plot the data
+ggplot(avg_data, aes(x = Year, y = avg_Percentage)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Year", y = "Average Percentage of Population", title = "Average Percentage Childless over Time by Class") +
+  theme_minimal()
+
+```
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-avg-gender
+#| fig-cap: "Average Percentage Childless over Time by Gender"
+
+# Group the data by Year and calculate the average of Percentage for each year
+avg_data <- data_long_sex |>
+  group_by(Year) |>
+  summarise(Sum_Percentage = sum(Percentage, na.rm = TRUE)) |>
+  mutate(avg_Percentage = Sum_Percentage / 2)
+
+# Print the average data
+# print(avg_data)
+
+# Plot the data
+ggplot(avg_data, aes(x = Year, y = avg_Percentage)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Year", y = "Average Percentage of Population", title = "Average Percentage Childless over Time by Gender") +
+  theme_minimal()
+
+```
+
+```{r}
+#| echo: false
+#| include: true
+#| warning: false
+#| label: fig-nochild-avg-degree
+#| fig-cap: "Average Percentage Childless over Time by Degree"
+
+# Group the data by Year and calculate the average of Percentage for each year
+avg_data <- data_long_degree |>
+  group_by(Year) |>
+  summarise(Sum_Percentage = sum(Percentage, na.rm = TRUE)) |>
+  mutate(avg_Percentage = Sum_Percentage / 3)
+
+# Print the average data
+# print(avg_data)
+
+# Plot the data
+ggplot(avg_data, aes(x = Year, y = avg_Percentage)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Year", y = "Average Percentage of Population", title = "Average Percentage Childless over Time by Degree") +
+  theme_minimal()
+
+```
 
 # Discussion {#sec-discussion}
 
