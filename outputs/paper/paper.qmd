@@ -6,7 +6,7 @@ author:
 thanks: "Code and data are available at: https://github.com/mehrnoush68/childlessness-in-america.git"
 date: today
 date-format: long
-abstract: "This paper investigates trends in childlessness in the United States from 1972 to 2022. Data from the General Social Survey (GSS) is analyzed to consider factors like age, gender, education, class, health condition, marital status and number of children. The analysis reveals a consistent rise in childlessness across various demographics, potentially linked to economic considerations, educational attainment, and shifting social norms. The paper explores the potential social and economic implications of this trend, highlighting the need for further research to navigate the complexities surrounding childlessness in today's society."
+abstract: "This paper investigates U.S. childlessness trends (1972-2022) using data collected from the General Social Survey (GSS). The research covers several factors such as age, gender, education, social class, health conditions, marital status, and number of children. The analysis reveals rising childlessness across demographics, potentially linked to economic factors, education, and social norms. We explore the social and economic implications of this trend and emphasize the need for further research on childlessness in modern America."
 format: pdf
 number-sections: true
 toc: true
@@ -67,7 +67,7 @@ table_nochild_health <-
 
 
 # Introduction {#sec-intro}
-The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a societal norm, having children now becomes a choice. This paper looks into this phenomenon by examining various datasets on factors such as age, gender, education, socioeconomic class, health conditions and marital status, and how they affect childbearing rates over the past 50 years.
+The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a societal norm, having children now becomes a choice [@voluntaryChild]. This paper looks into this phenomenon by examining various datasets on factors such as age, gender, education, socioeconomic class, health conditions and marital status, and how they affect childbearing rates over the past 50 years.
 
 Analyzing these factors offers a window into understanding not only the prevalence of childlessness within different segments of the population but also the potential drivers behind this trend. Existing research suggests a complex interplay of factors, including economic considerations, rising educational attainment, changing social norms related to career and family life, and individual preferences [@voluntaryChild].
 
@@ -507,53 +507,98 @@ Participation in this survey is voluntary, and all responses will be kept anonym
 
 Thank you for taking the time to complete this survey. If you have any questions or require further information, please feel free to contact mm.mohammadi@mail.utoronto.ca.
 
-## Survey Questions from GSS
+## Survey Questions for Childlessness
 
-(@) How old are you?
+**Demographics**
+
+(@) Age:
 (short answer text)
 
 (@) Gender:
 - Female
 - Male
+- Non-binary
 - Prefer not to say
 
-(@) Are you currently:
+(@) Marital Status:
 - Married
 - Widowed
 - Divorced
 - Separated
 - Never married
+- Living in a committed partnership
 
-(@) What is your highest degree?
-- College +
-- High school
-- Less than high school
+(@) Highest Level of Education:
+- No formal education
+- Less than high school diploma
+- High school diploma
+- Some college degree
+- Associate's degree
+- Bachelor's degree
+- Master's degree
+- Doctorate or professional degree
 
+**Family and Childbearing**
 
-(@) How many children have you ever had?  Please count all that were born alive at any time (including any you had from a previous marriage).
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8 or more
+(@) Do you currently have any children?
+- Yes
+- No
 
+(@) If yes, How many children have you ever had? Please count all that were born alive at any time (including any you had from a previous marriage).
+(short answer text)
 
-(@) If you were asked to use one of four names for your social class, which would you say you belong in: 
+(@) At what age did you have your first child (if any)?
+(Short answer text)
+
+(@) Do you currently desire to have children? 
+- Yes, I desire to have children.
+- No, I do not desire to have children.
+- I already have children and would like more.
+- I have not decided about having children.
+
+(@) If you do not have children, what are the main reasons for your decision?
+- Financial concerns
+- Career aspirations
+- Not interested in parenthood
+- Health concerns
+- Other (short answer text)
+
+**Socioeconomic**
+
+(@) What is your current employment status?
+- Employed full-time
+- Employed part-time
+- Self-employed
+- Unemployed
+- Retired
+- Student
+- Other (short answer text)
+
+(@) Do you feel your current financial situation allows you to comfortably raise children?
+- Yes
+- No
+- I do not know
+
+(@) If you were asked to use one of four names for your social class, which would you say you belong in? 
 - The lower class 
 - The working class
 - The middle class
 - The upper class
-
 
 (@) Would you say your own health, in general:
 - Excellent
 - Good
 - Fair
 - Poor
+
+(@) Do you or your partner have any significant health conditions that may impact your decision to have children?
+- Yes
+- No
+- Maybe
+
+**Thank you for your participation**
+
+We sincerely appreciate your time and thoughtful responses to our survey about childbearing decisions. If you have any additional comments or suggestions, please feel free to contact us.
 
 \newpage
 
