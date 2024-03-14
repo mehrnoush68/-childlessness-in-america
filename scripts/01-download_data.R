@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Downloads the data from US General Social Survey
 # Author: Mehrnoush Mohammadi & Quang Mai
-# Date: 2 March 2024
+# Date: 14 March 2024
 # Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: Download the raw data from US General Social Survey (https://gssdataexplorer.norc.org/trends)

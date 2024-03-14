@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Simulates data for the data sets no child, age, class identification, degree, and gender
 # Author: Mehrnoush Mohammadi & Quang Mai
-# Date: 2 March 2024
+# Date: 14 March 2024
 # Contact: mm.mohammadi@mail.utoronto.ca
 # License: MIT
 
