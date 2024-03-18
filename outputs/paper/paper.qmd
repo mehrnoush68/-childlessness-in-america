@@ -264,7 +264,7 @@ People and households are divided into groups based on their socioeconomic statu
 \newpage
 ### Overview of Educational Attainment's Impact on Childlessness
 
-Further, @tbl-nochild-degree explores the association between educational attainment and childlessness. @fig-nochild-class-edu illustrates this data, presenting a comparative analysis of childlessness across individuals with different levels of educational attainment (less than high school, high school and college degree or higher) in the United States from 1972 to 2022. The graph utilizes line trends to depict the percentage of childless individuals within each degree category over the five decades.
+Further, @tbl-nochild-degree explores the association between educational attainment and childlessness. @fig-nochild-class-edu illustrates this data, presenting a comparative analysis of childlessness across individuals with different levels of educational attainment (less than high school, high school and college degree or higher) in the United States from 1972 to 2022. The graph utilizes trend lines to depict the percentage of childless individuals within each degree category over the five decades.
 
 ```{r}
 #| echo: false
