@@ -1579,3 +1579,8 @@ table_nochild_degree_long <- pivot_longer(table_nochild_degree, -`Degree`, names
 table_nochild_sex_long <- pivot_longer(table_nochild_sex, -`Gender`, names_to = "Year", values_to = "Percentage")
 Replace table_nochild_age, table_nochild_class, table_nochild_degree, and table_nochild_sex with your actual datasets. This code will convert each dataset from wide to long format and add year labels as a new column. Adjust the column names (Age, Class Identification, Degree, Gender) and other parameters as needed to match your actual data.
 
+# Add correlation rate
+correlation <- cor(data_long_overall$Year, data_long_overall$Percentage)
+print(paste("Correlation coefficient between Year and Percentage:", correlation))
+
+

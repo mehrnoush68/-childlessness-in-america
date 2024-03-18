@@ -20,7 +20,8 @@ input_files <- c(
   "nochild_sex.csv",
   "nochild_higestdegree.csv",
   "nochild_health.csv",
-  "nochild_marital.csv"
+  "nochild_marital.csv",
+  "nochild_overall.csv"
 )
 
 # Remove "nochild_" from input file names and create output file names
