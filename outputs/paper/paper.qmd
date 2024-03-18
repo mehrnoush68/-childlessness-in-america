@@ -45,13 +45,11 @@ table_nochild_overall <- table_nochild_overall |>
 
 
 # Introduction {#sec-intro}
-The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a societal norm, having children now becomes a choice [@voluntaryChild]. We examine factors such as age, gender, education, socioeconomic class, health conditions and marital status, and how they affect childbearing rates over the past 50 years.
+The American family landscape is undergoing a significant transformation, marked by a growing trend of childlessness. Traditionally viewed as a social norm, having children now becomes a choice [@voluntaryChild]. We examine factors such as age, gender, education, socioeconomic class, health conditions and marital status, and how they affect childbearing rates from 1972 to 2022. Existing research suggests a complex interplay of factors that contribute to childlessness, including economic considerations, rising educational attainment, shifting social norms related to career and family life, and individual preferences [@voluntaryChild].
 
-These helps us understand not only the prevalence of childlessness within different segments of the population but also the potential drivers behind this trend. Existing research suggests a complex interplay of factors, including economic considerations, rising educational attainment, changing social norms related to career and family life, and individual preferences [@voluntaryChild].
+By analyzing the data, we seek to answer crucial questions: What are some important factors contributing to this trend? How does childlessness manifest differently across demographic groups? Finally, what are the potential social, economic, and individual consequences of this new family structure in the United States? Understanding these dynamics is crucial in having an informed policy discussion and navigating the implications of childlessness in a rapidly changing world. 
 
-We explore the impact of these factors on the rise of childlessness in America. By analyzing the data, we seek to answer crucial questions: What are some important factors contributing to this trend? How does childlessness manifest differently across demographic groups? Finally, what are the potential social, economic, and individual consequences of this new family structure in the United States? Understanding these dynamics is crucial in having an informed policy discussion and navigating the implications of childlessness in a rapidly changing world. 
-
-Our estimand is the relationship between age, gender, socio-economic class, educational attainment, health status, marital status and the rate of childlessness in the United States from 1972 to 2022. Through our analysis, we found that childless rate is consistently on the rise from 1972 to 2022, with correlation coefficient of 0.73 between childless percentage and time (or a 6.99% increase from 1972 to 2022). Factors that directly contribute to this rise are higher educational attainment, higher socio-economic class,lower gender disparity, better health status and dissolution of marriages through divorces, separation and being widowed.
+Our estimand is the relationship between age, gender, socio-economic class, educational attainment, health status, marital status and the rate of childlessness in the United States from 1972 to 2022. Through our analysis, we found that childless rate is consistently on the rise from 1972 to 2022, with correlation coefficient of 0.73 between childless percentage and time (or a 6.99% increase over the last 50 years). Factors that directly contribute to this rise are higher educational attainment, higher socio-economic class, lower gender disparity, better health status and dissolution of marriages through divorces, separation and being widowed. In addition, global events like pandemics and recession also heighten the rate of childlessness from 1972-2022, including the AIDs pandemic, 9/11, 2008 Recession and the COVID-19 pandemic. During the 2008 Recession, from 2008 to 2014, the rate of childlessness increases the most, at 3%.
 
 To further understand why these causes explain rising childlessness, our paper starts with a brief dissection of the nature of childlessness in America and the contributing factors in [Introduction]. Subsequently, in [Data] and [Result], we talk about the nature of the data obtained and analyze the results garnered from the data with suitable tables and charts. Next, [Discussion] provides further insights and future areas of study. Finally, [Conclusion] summarizes our main findings. To complete the paper, [Appendix] clarifies how each variable within each dataset is measured and the survey that we've generated based off the dataset.
 
@@ -549,6 +547,7 @@ ggplot(avg_data_degree, aes(x = Year, y = avg_Percentage)) +
   theme(text = element_text(size = 9))
 
 ```
+
 
 ## Overall Rate of Childlessness Over Time
 
