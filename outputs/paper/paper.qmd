@@ -625,9 +625,12 @@ Moving forward, further research with longitudinal studies and diverse data sour
 \appendix
 
 # Appendix {#sec-appendix}
-The supplementary survey is accessible through this link: https://forms.gle/DsFgJCKPeCtdqZKL6 
 
-## Survey Preamble
+## Our Survey for Childlessness Study
+
+The supplementary survey is accessible through this [Google Form Link](https://forms.gle/DsFgJCKPeCtdqZKL6)
+
+### Survey Preamble
 The General Social Survey (GSS) collects data on social trends to help track changes in Canadians' living conditions and well-being over time. Also, it provides information on specific social policy issues that are currently or potentially important.
 
 We are conducting a study to investigate the reasons behind childlessness in different groups of people. To do so, we will analyze various data sets, including information on age, gender, education, socioeconomic status, health conditions, and marital status. By examining these factors, we hope to gain insight into how they impact rates of childbearing.
@@ -636,7 +639,7 @@ Participation in this survey is voluntary, and all responses will be kept anonym
 
 Thank you for taking the time to complete this survey. If you have any questions or require further information, please feel free to contact mm.mohammadi@mail.utoronto.ca.
 
-## Survey Questions for Childlessness
+### Survey Questions
 
 **Demographics**
 
@@ -725,9 +728,50 @@ Thank you for taking the time to complete this survey. If you have any questions
 - No
 - Maybe
 
+### Survey Completion Message
+
 **Thank you for your participation**
 
 We sincerely appreciate your time and thoughtful responses to our survey about childbearing decisions. If you have any additional comments or suggestions, please feel free to contact us.
+
+
+
+## Survey Questions from GSS
+
+1. RESPONDENT'S AGE: (short answer text)
+
+2. RESPONDENT'S SEX
+
+- Female
+- Male
+
+3. Are you currently--married, widowed, divorced, separated, or have you never been married? (short answer text)
+
+4. RESPONDENT'S DEGREE
+
+- Graduate
+- Bachelor's
+- Associate/junior college
+- High school
+- Less than high school
+
+5. How many children have you ever had?  Please count all that were born alive at any time (including any you had from a previous marriage).
+
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8 or more
+
+
+6. If you were asked to use one of four names for your social class, which would you say you belong in: the lower class, the working class, the middle class, or the upper class? (short answer text)
+
+7. Would you say your own health, in general, is excellent, good, fair, or  poor? (short answer text)
+
 
 \newpage
 
