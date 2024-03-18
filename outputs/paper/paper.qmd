@@ -212,7 +212,7 @@ data_long_class$Year <- as.integer(data_long_class$Year)
 ggplot(data_long_class, aes(x = Year, y = Percentage, color = `Class Identification`)) +
    geom_line() +
   geom_smooth(method = "loess", se = FALSE, linetype = "dashed", size = 1.2) +  # Add running average trend line
-  labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Class", color = "Breakdown Category") +
+  labs(x = "Year", y = "Percentage of Population", title = "Childless Percentage of Population over Time by Class", color = "Class") +
   theme_minimal() +
   theme(text = element_text(size = 10))
 
@@ -422,6 +422,8 @@ While these datasets aim to illuminate on the general time trends of childlessne
 
 
 # Result {#sec-result}
+
+Upon assessing the available data, we further extrapolate on them here by calculating the average rate of childlessness in each year for each of these four critical factors: health conditions, marital status, educational attainment and socio-economic class. At the end, @fig-overall compounds on these factors as a graph that shows the overall rate of childlessness in each year from 1972 to 2022.
 
 ## Health Conditions and Marital Status Impact on Childlessness
 
