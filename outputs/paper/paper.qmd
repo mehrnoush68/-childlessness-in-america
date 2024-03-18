@@ -611,7 +611,7 @@ The findings presented in this paper reveal a consistent and concerning trend of
 
 This paper cannot definitively establish causal relationships, but the data suggests several potential factors contributing to rising childlessness, all supported by existing research. These include economic concerns like two global pandemics, rising childcare costs, student loan debt, and economic uncertainty [@voluntaryChild]. Additionally, individuals with higher educational attainment, particularly women, might delay or forgo childbearing to pursue career opportunities [@effectiveVol]. Furthermore, shifting social norms related to childbearing, family structures, and career aspirations, especially for women, may be contributing factors. Finally, the decision to remain childless can also be influenced by individual values, lifestyle choices, and personal circumstances.
 
-## Societal Implications of Rising Childlessness
+## Social and Ethical Implications of Rising Childlessness
 
 The rising trend of childlessness carries potential consequences across various societal spheres. A shrinking pool of younger workers could pose challenges to economic growth and strain social security systems. Additionally, the rise of childless families could have implications for social support networks and intergenerational relationships [@voluntaryChild]. While childlessness can be a personal choice for some individuals and may even lead to a fulfilling life, it could also be associated with feelings of isolation and a lack of social support for others [@effectiveVol]. These potential consequences highlight the need for further research and discussion on how to navigate the social, economic, and individual complexities associated with rising childlessness.
 
